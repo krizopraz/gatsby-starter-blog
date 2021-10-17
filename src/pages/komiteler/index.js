@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react"
 
 const index = () => {
-    return (
-        <div>
-            Komiteler İndex 
-        </div>
-    )
+  return <div>Komiteler İndex</div>
 }
 
 export default index

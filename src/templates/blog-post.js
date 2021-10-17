@@ -2,7 +2,30 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/blogLayout"
 import Seo from "../components/blogSeo"
-import Bio from "../components/blogBio"
+import client from "../db/supabase"
+
+async function Comments ({postName}) {
+  const {data,error} = client.from('yorumlar').select('*')
+  console.log(data)
+  if(error){
+    console.log(error)
+  }
+  if(data ==null){
+    return <span>Yorum Bulunamadı. İlk yorumu atmaya ne dersin ? </span>
+  }
+  return(
+    <ul>
+      {data.length === 0 ? <span>Yorum Bulunamadı. İlk yorumu atmaya ne dersin ? </span> : data.map((comment)=>{
+        return(
+          <li>
+              <p>{comment.icerik}</p>
+              <span>{comment.zaman}</span>
+          </li>
+        )
+      }) }
+    </ul>
+  )
+}
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
@@ -30,7 +53,7 @@ const BlogPostTemplate = ({ data, location }) => {
         />
         <hr />
         <footer>
-          <Bio />
+          {client.auth.user() !== null ? <Comments postName={post.frontmatter.title} /> : <Comments postName={post.frontmatter.title} /> }
         </footer>
       </article>
       <nav className="blog-post-nav">
@@ -45,14 +68,14 @@ const BlogPostTemplate = ({ data, location }) => {
         >
           <li>
             {previous && (
-              <Link to={'/blog'+previous.fields.slug} rel="prev">
+              <Link to={"/blog" + previous.fields.slug} rel="prev">
                 ← {previous.frontmatter.title}
               </Link>
             )}
           </li>
           <li>
             {next && (
-              <Link to={'/blog'+next.fields.slug} rel="next">
+              <Link to={"/blog" + next.fields.slug} rel="next">
                 {next.frontmatter.title} →
               </Link>
             )}

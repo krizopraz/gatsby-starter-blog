@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react"
 
 const etkinlikler = () => {
-    return (
-        <div>
-            etkinlikler
-        </div>
-    )
+  return <div>etkinlikler</div>
 }
 
 export default etkinlikler

@@ -28,7 +28,7 @@
     "gatsby-source-supabase": "^1.0.1",
     "gatsby-transformer-remark": "^4.10.0",
     "gatsby-transformer-sharp": "^3.13.0",
-    "netlify-cms-app": "^2.15.46",
+    "netlify-cms-app": "^2.15.51",
     "prismjs": "^1.25.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -37,6 +37,12 @@
     "typeface-montserrat": "0.0.75"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.1.2",
+    "babel-jest": "^27.2.5",
+    "babel-preset-gatsby": "^1.14.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.2.5",
     "prettier": "2.4.1"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",

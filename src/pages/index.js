@@ -1,13 +1,8 @@
-
-import React from 'react'
-import Layout from '../components/mainLayout'
+import React from "react"
+import Layout from "../components/mainLayout"
 
 const index = () => {
-    return (
-            <Layout>
-
-            </Layout>
-    )
+  return <Layout></Layout>
 }
 
 export default index

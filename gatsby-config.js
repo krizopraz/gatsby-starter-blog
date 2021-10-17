@@ -1,5 +1,5 @@
-require('dotenv').config({
-  path:`.env.${process.env.NODE_ENV}`
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
 })
 module.exports = {
   siteMetadata: {
@@ -16,7 +16,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-image`,
-/*     {
+    /*     {
       resolve: `gatsby-source-supabase`,
       options: {
         supabaseUrl : process.env.SUPABASE_URL,
@@ -32,9 +32,11 @@ module.exports = {
          * One convention is to place your Netlify CMS customization code in a
          * `src/cms` directory.
          */
+        enableIdentityWidget: false,
         modulePath: `${__dirname}/src/cms/cms.js`,
       },
-    },{
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,

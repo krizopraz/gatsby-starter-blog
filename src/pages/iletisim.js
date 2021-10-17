@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react"
+import Layout from "../components/mainLayout"
 
 const iletisim = () => {
-    return (
-        <div>
-            iletisim    
-        </div>
-    )
+  return (
+    <Layout>
+      <div>iletisim</div>
+    </Layout>
+  )
 }
 
 export default iletisim
