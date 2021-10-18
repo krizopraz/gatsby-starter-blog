@@ -1,15 +1,13 @@
-import * as React from "react"
+import React, { useState } from 'react'
 import { Link, graphql } from "gatsby"
 import Layout from "../components/blogLayout"
 import Seo from "../components/blogSeo"
 import client from "../db/supabase"
 
-async function Comments ({postName}) {
-  const {data,error} = client.from('yorumlar').select('*')
+function Comments ({postName}) {
+  const [data, setData] = useState([])
+  client.from('yorumlar').select('*').then(data=>setData(data))
   console.log(data)
-  if(error){
-    console.log(error)
-  }
   if(data ==null){
     return <span>Yorum Bulunamadı. İlk yorumu atmaya ne dersin ? </span>
   }

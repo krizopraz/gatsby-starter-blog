@@ -5,7 +5,6 @@ import client from '../db/supabase'
 function Kullanici(){
   let user = client.auth.user()
   client.auth.onAuthStateChange(()=>{},)
-  console.log(user)
   if(client.auth.session() === null ){
     return(
       <div>
