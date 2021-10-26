@@ -9,6 +9,12 @@ const Kayitol = () => {
     sifre: "",
     ikincisifre: "",
   })
+  function handleinput(event){
+      let newfields = Object.create(fields)
+      newfields[event.target.id] = event.target.value
+      setFields(newfields)
+      newfields = null
+  }
   function kayit() {
     if (fields.sifre !== fields.ikincisifre) {
       throw new Error("Birinci ve ikinci şifre bir değil")
@@ -35,72 +41,50 @@ const Kayitol = () => {
   return (
     <div>
       <form
-        onSubmitCapture={event => {
+        onSubmit={event => {
           event.preventDefault()
           kayit()
         }}
       >
         <label htmlFor="ad">Ad</label>
         <input
-          onChange={event => {
+          onSubmitCapture={event => {
             let newfields = Object.create(fields)
             newfields[event.target.id] = event.target.value
             setFields(newfields)
             newfields = null
           }}
-          value={fields.ad}
           type="text"
           name="ad"
           id="ad"
         />
         <label htmlFor="soyisim">Soyad</label>
         <input
-          onChange={event => {
-            let newfields = Object.create(fields)
-            newfields[event.target.id] = event.target.value
-            setFields(newfields)
-            newfields = null
-          }}
-          value={fields.soyad}
+          onSubmitCapture={event => handleinput(event)}
           type="text"
           name="soyad"
           id="soyad"
         />
         <label htmlFor="email">Email</label>
         <input
-          onChange={event => {
-            let newfields = Object.create(fields)
-            newfields[event.target.id] = event.target.value
-            setFields(newfields)
-            newfields = null
-          }}
-          value={fields.email}
+          onSubmitCapture={event => {
+            handleinput(event)}}
           type="email"
           name="email"
           id="email"
         />
         <label htmlFor="sifre">Şifre</label>
         <input
-          onChange={event => {
-            let newfields = Object.create(fields)
-            newfields[event.target.id] = event.target.value
-            setFields(newfields)
-            newfields = null
-          }}
-          value={fields.sifre}
+          onSubmitCapture={event => {
+            handleinput(event)}}
           type="password"
           name="sifre"
           id="sifre"
         />
         <label htmlFor="ikinicisifre">Tekrar Şifrenizi giriniz</label>
         <input
-          onChange={event => {
-            let newfields = Object.create(fields)
-            newfields[event.target.id] = event.target.value
-            setFields(newfields)
-            newfields = null
-          }}
-          value={fields.ikincisifre}
+          onSubmitCapture={event => {
+            handleinput(event)}}
           type="password"
           name="ikinicisifre"
           id="ikincisifre"

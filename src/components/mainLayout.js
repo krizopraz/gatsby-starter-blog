@@ -9,8 +9,8 @@ function Kullanici(){
   if(client.auth.session() === null ){
     return(
       <div>
-            <Link to="girisyap">Giriş Yap</Link>
-            <Link to="kayitol">Kayıt Ol</Link>
+            <Link to="/girisyap">Giriş Yap</Link>
+            <Link to="/kayitol">Kayıt Ol</Link>
       </div>
     )
   }
