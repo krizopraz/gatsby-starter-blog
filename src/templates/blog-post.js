@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 import React from "react"
+=======
+import React, { useState } from 'react'
+>>>>>>> cec3cfa49d20cd4d2e0374a16d7ca359618a7bad
 import { Link, graphql } from "gatsby"
 import Layout from "../components/blogLayout"
 import Seo from "../components/blogSeo"
 import client from "../db/supabase"
 
+<<<<<<< HEAD
 function YorumYap ({postId,actions}){
   const [icerik, setIcerik] = React.useState('')
   if(client.auth.session() === undefined ||client.auth.session() === null ) return <span>Yorum yapabilmek için <Link to='/girisyap'>Giriş yapmalısınız</Link>.Kayıt olmak için <Link to='/kayitol'>buraya tıklayın</Link>.</span>
@@ -51,6 +56,14 @@ function Comments ({postId}) {
       <span>Yorum Bulunamadı. İlk yorumu atmaya ne dersin ? </span>
     </>
     )
+=======
+function Comments ({postName}) {
+  const [data, setData] = useState([])
+  client.from('yorumlar').select('*').then(data=>setData(data))
+  console.log(data)
+  if(data ==null){
+    return <span>Yorum Bulunamadı. İlk yorumu atmaya ne dersin ? </span>
+>>>>>>> cec3cfa49d20cd4d2e0374a16d7ca359618a7bad
   }
   return(
     <div >
